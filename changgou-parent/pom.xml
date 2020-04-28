@@ -11,6 +11,7 @@
         <module>changgou_eureka</module>
         <module>hanggou_common</module>
         <module>changgou_common_db</module>
+        <module>changgou_service_file</module>
     </modules>
     <groupId>com.gordon.changgou-parent</groupId>
     <artifactId>changgou-parent</artifactId>
