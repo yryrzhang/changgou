@@ -1,12 +1,12 @@
-package om.changgou.goods.controller;
+package com.changgou.goods.controller;
 
 
-import com.github.pagehelper.Page;
 import com.changgou.entity.PageResult;
 import com.changgou.entity.Result;
 import com.changgou.entity.StatusCode;
-import om.changgou.goods.pojo.Brand;
-import om.changgou.goods.service.BrandService.BrandService;
+import com.changgou.goods.pojo.Brand;
+import com.changgou.goods.service.BrandService.BrandService;
+import com.github.pagehelper.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,11 +19,7 @@ import java.util.List;
  * @Version 1.0
  */
 @RestController
-@RequestMapping("/controller\n" +
-        "BrandMapper\n" +
-        "handler\n" +
-        "pojo\n" +
-        "service")
+@RequestMapping("/brand")
 public class BrandController {
     @Autowired
     private BrandService brandService;
@@ -70,7 +66,7 @@ public class BrandController {
         return new Result(true, StatusCode.OK, "查询成功", brands);
     }
 
-    @GetMapping("/search/{page}/{size}")
+    @GetMapping("/searchPage/{page}/{size}")
     public Result findPage(@RequestParam HashMap searchMap, @PathVariable int page, @PathVariable int size) {
         Page<Brand> brandPage = brandService.findPage(searchMap, page, size);
         PageResult pageResult = new PageResult(brandPage.getTotal(), brandPage.getResult());

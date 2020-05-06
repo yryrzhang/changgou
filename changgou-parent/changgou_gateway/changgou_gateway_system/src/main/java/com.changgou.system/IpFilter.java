@@ -18,7 +18,7 @@ public class IpFilter implements GlobalFilter, Ordered {
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
         System.out.println("go through first filter");
-        ServerHttpRequest request = (ServerHttpRequest) exchange.getRequest();
+        ServerHttpRequest request = exchange.getRequest();
         InetSocketAddress address = request.getRemoteAddress();
         System.out.println("ip" + address.getHostName());
         return chain.filter(exchange);
